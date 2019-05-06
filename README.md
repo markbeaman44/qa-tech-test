@@ -1,3 +1,10 @@
+See the README.MD on how to execute Test via Python.
+
+[READ ME](https://github.com/ecsdigital/qa-tech-test/blob/0aeee60e6d1472f5a0f968a0ca41ef0918685ddd/src/test/README.md)
+
+I've used Selenium with Python, and tests can be executed via Make commands.
+
+
 # ECSD Tech Test
 Welcome to the ECSD Tech Test 
 
