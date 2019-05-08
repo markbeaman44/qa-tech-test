@@ -7,6 +7,12 @@ Open a Terminal and enter:
 - sudo easy_install pip
 - Pip3.7 install selenium
 
+OR
+
+If Python installed already then requirement.txt can be used to install packages:
+- pip3 install -r requirement.txt
+
+
 ## Install Chromedriver
 If already installed and at SYSTEM PATH - go straight to Execute Tests 
 
