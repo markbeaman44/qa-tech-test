@@ -36,7 +36,6 @@ class TestECS(unittest.TestCase):
             # Calculates the sum value from list
             sum = others.calc_array(num_list)
 
-            print(f'{num_list} with Sum: {sum}')
             # Adds value into correct submit textfield
             self.driver.find_element(
                 By.XPATH, f'//input[@data-test-id="submit-{row}"]'
