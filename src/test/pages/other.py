@@ -8,8 +8,8 @@ def calc_array(num_list):
     """
 
     for x in range(len(num_list)):
-        if sum(num_list[:x+1]) == sum(num_list[x+2:]):
-            return sum(num_list[:x+1])
+        if sum(num_list[:x]) == sum(num_list[x+1:]):
+            return x
     return 'null'
 
 

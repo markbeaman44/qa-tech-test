@@ -3,6 +3,8 @@ import unittest
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from src.test.pages import other as others
 
@@ -13,7 +15,10 @@ class TestECS(unittest.TestCase):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
         self.driver.get("localhost:3000")
-        time.sleep(2)
+
+        WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located((By.ID, "home"))
+        )
 
 
     def test_array_ecs(self):
