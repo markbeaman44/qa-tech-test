@@ -1,11 +1,15 @@
-
-all: build up test
+ECS?= -f docker-compose.ecs.yaml
+HUB?= -f docker-compose.hub.yaml
+TEST?= -f docker-compose.test.yaml
 
 build:
-	docker build -t ecsd-tech-test .
+	docker-compose $(HUB) $(ECS) $(TEST) build
 
 up:
-	docker run -it -d -p 3000:3000 ecsd-tech-test:latest
+	docker-compose $(HUB) $(ECS) up -d
 
 test:
-	python3.7 src/test/e2e/test_array.py
+	docker-compose $(HUB) $(ECS) $(TEST) run test
+
+down:
+	docker-compose $(HUB) $(ECS) down

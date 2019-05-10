@@ -1,5 +1,14 @@
 # Excute Python Tests
 
+## Execute Tests
+- `make build` = `builds ecsd-tech-test, selenium hub/node and python environment`
+- `make up` = `ups ecsd-tech-test, selenium hub/node and python environment`
+- `make test` = `tests with docker-python environment using docker-selenium hub/node`
+- `make down` = `teardowns all docker images`
+
+
+# If you want to install locally:
+
 ## Setup Python locally
 You need to install the following to run the test:
 Open a Terminal and enter:
@@ -14,7 +23,7 @@ If Python installed already then requirement.txt can be used to install packages
 
 
 ## Install Chromedriver
-If already installed and at SYSTEM PATH - go straight to Execute Tests 
+If already installed and at SYSTEM PATH - go straight to Execute Tests
 
 Chrome needs to be installed locally:
 Goto URL: http://chromedriver.storage.googleapis.com/index.html
@@ -25,17 +34,3 @@ url - https://www.kenst.com/2015/03/including-the-chromedriver-location-in-macos
 OR
 
 Add the `executable_path="{CHROMEDRIVER_DIRECTORY}"` to `self.driver = webdriver.Chrome()`
-
-## Execute Tests
-Python needs to be told which directory to look at before tests are executable:
-Open a Terminal and enter:
-- export PYTHONPATH=$HOME/{WORKING_DIRECTORY}/qa-tech-test/
-Note: this needs to be done on same terminal to execute tests
-
-- `make build` = `docker build -t ecsd-tech-test .`
-- `make up` = `docker run -it -p 3000:3000 ecsd-tech-test:latest`
-- `make test` = `python3.7 src/test/e2e/test_array.py`
-
-OR
-
-- `make all` which does all 3 commands above

@@ -1,5 +1,6 @@
 import time
 import unittest
+import warnings
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -12,9 +13,11 @@ from src.test.pages import other as others
 class TestECS(unittest.TestCase):
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
-        self.driver.maximize_window()
-        self.driver.get("localhost:3000")
+        self.driver = webdriver.Remote(
+            command_executor='http://selenium-hub:4444/wd/hub',
+            desired_capabilities={'browserName': 'chrome'}
+        )
+        self.driver.get("http://ecs:3000")
 
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located((By.ID, "home"))
@@ -28,7 +31,7 @@ class TestECS(unittest.TestCase):
             By.XPATH, '//button[@data-test-id="render-challenge"]'
         )
         render_button.click()
-        
+
         row = 1
         while row <= 3:
             # Goes through each table row and stores into a list
@@ -38,14 +41,15 @@ class TestECS(unittest.TestCase):
 
             # Adds value into correct submit textfield
             self.driver.find_element(
-                By.XPATH, f'//input[@data-test-id="submit-{row}"]'
+                By.XPATH, 
+                f'//input[@data-test-id="submit-{row}"]'
             ).send_keys(sum)
 
             row += 1
         # Adds 'my_name' into Your Name textfeild
         self.driver.find_element(
             By.XPATH, '//input[@data-test-id="submit-4"]'
-        ).send_keys(my_name)    
+        ).send_keys(my_name)
         # Submits results
         submit_button = self.driver.find_element(
             By.XPATH, '//button[@data-test-id="submit"]'
@@ -57,5 +61,5 @@ class TestECS(unittest.TestCase):
         self.driver.quit()
 
 
-if __name__ == '__main__':  
-    unittest.main()      
+if __name__ == '__main__': 
+    unittest.main(warnings='ignore')
