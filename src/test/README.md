@@ -5,6 +5,9 @@
 - `make up` = `ups ecsd-tech-test, selenium hub/node and python environment`
 - `make test` = `tests with docker-python environment using docker-selenium hub/node`
 - `make down` = `teardowns all docker images`
+- `make ecs` = `ups ecsd-tech-test`
+- `npm run cypress:run` = `tests against cypress (headless)`
+- `npx cypress open` = `opens cypress hub, to manually execute tests`
 
 
 # If you want to install locally:

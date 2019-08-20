@@ -13,3 +13,6 @@ test:
 
 down:
 	docker-compose $(HUB) $(ECS) down
+
+env:
+	docker-compose $(ECS) up -d
