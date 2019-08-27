@@ -1,60 +1,63 @@
-See the README.MD on how to execute Test via Python.
+# Excute Python Tests
 
-[READ ME](https://github.com/markbeaman44/qa-tech-test/blob/master/src/test/README.md)
+## Execute Commands
+- `make build` = `builds ecsd-tech-test, selenium hub/node and python environment`
+- `make up` = `ups ecsd-tech-test, selenium hub/node and python environment`
+- `make test` = `tests with docker-python environment using docker-selenium hub/node`
+- `make down` = `teardowns all docker images`
+- `make ecs` = `ups ecsd-tech-test`
+- `npm run cypress:run` = `tests against cypress (headless)`
+- `npx cypress open` = `opens cypress hub, to manually execute tests`
 
-I've used Selenium with Python, and tests can be executed via Make commands.
+## Execute Python tests via docker
+- `make build`
+- `make up`
+- `make test`
 
+## Execute Python BDD api tests via docker
+- coming soon
 
-# ECSD Tech Test
-Welcome to the ECSD Tech Test 
+## Execute Cypress tests
+- `npm install`
+- `make ecs`
+- `npx cypress open` - for UI hub version
+- `npm run cypress:run` - for headless version
 
-Please make a clone of this repository
+## Execute nightwatch tests
+- coming soon
 
-## Running the application
+## Execute java tests via docker
+- coming soon
 
-### To run the Local Version of the App
-You will need to have [node] and [yarn] both installed on your machine to run the app.
-
-- Clone this repository and make sure you are in this directory (the one containing `README.md`!)
-- Run `yarn && yarn start` to start the app
-- Visit `localhost:3000` in a browser
-
-### To run the Docker Version of the App 
-
-You will need to have [docker] installed and running to build the image.
-If you are new to docker please read the docker docs in order to understand how to build and run a container.
-
-- `docker build -t ecsd-tech-test .`
-- `docker run -it -p 3000:3000 ecsd-tech-test:latest`
-- Visit `localhost:3000` in a browser
-
-## Challenge 
-Once the app is started follow the instructions on the screen and complete the solution in the folder `/src/test/e2e/`
-
-Each part of the challenge gets increasingly harder. The futher you progress the more we will be impressed.
-Complete as much as you can!
-Once you see that green tick you are done.
-
-## Limitations
-There are no limitations set on this. If you are struggling to select elements you are free to edit the app source code where needed.
-What we are looking for is a good understanding of what makes a robust test and a good understanding of engineering principles.
-
-Note: you will not find the challenge answers in the application. Although you could hack the challenge or spam the API that verifies your answer, you still need to submit your test for us to review. 
+## Execute appium tests
+- coming soon
 
 
-## Bonus
-Have your tests start and tear down the app.
 
-BDD frameworks are great, but are they always appropriate? You decide.
+# If you want to install locally:
 
-## Submit your test
-Once completed push the solution up to your own repository and link ECS the url along with run instructions.
+## Setup Python locally
+You need to install the following to run the test:
+Open a Terminal and enter:
+- Install python3.7
+- sudo easy_install pip
+- Pip3.7 install selenium
 
-## Note
-Please stick to contributing from one account, it makes you look better.
+OR
 
-Good Luck!
+If Python installed already then requirement.txt can be used to install packages:
+- pip3 install -r requirement.txt
 
-[docker]: https://docs.docker.com/get-started/
-[node]: https://nodejs.org/en/
-[yarn]: https://yarnpkg.com/en/
+
+## Install Chromedriver
+If already installed and at SYSTEM PATH - go straight to Execute Tests
+
+Chrome needs to be installed locally:
+Goto URL: http://chromedriver.storage.googleapis.com/index.html
+
+Goto URL, to add chromedriver as SYSTEM PATH:
+url - https://www.kenst.com/2015/03/including-the-chromedriver-location-in-macos-system-path/
+
+OR
+
+Add the `executable_path="{CHROMEDRIVER_DIRECTORY}"` to `self.driver = webdriver.Chrome()`

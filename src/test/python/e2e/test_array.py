@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from src.test.pages import other as others
+from src.test.python.pages import other as others
 
 
 class TestECS(unittest.TestCase):

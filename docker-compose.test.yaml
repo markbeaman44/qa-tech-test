@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-python
-    command: python3 src/test/e2e/test_array.py
+    command: python3 src/test/python/e2e/test_array.py
     env_file:
       - docker-compose.env
     volumes:
